@@ -84,9 +84,9 @@ class IPC(Bloxlink.Module):
 
                     return
 
-                if guild.verification_level == VerificationLevel.highest:
+                if guild.verification_level >= VerificationLevel.low:
                     try:
-                        await member.send(f"This server ({guild.name}) requires that you **verify your phone number.** Please make sure a phone number is connected to your Discord account, then use the `/getrole` command in the server to get your roles.")
+                        await member.send(f"This server ({guild.name}) has a **Discord verification level enabled.** Please complete this verification, then use the `/getrole` command in the server to get your roles.")
                     except Forbidden:
                         pass
 

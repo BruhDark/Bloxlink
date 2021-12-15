@@ -18,7 +18,7 @@ class MemberUpdateEvent(Bloxlink.Module):
         async def on_member_update(before, after):
             guild = before.guild
 
-            if guild.verification_level == discord.VerificationLevel.highest:
+            if guild.verification_level >= discord.VerificationLevel.low:
                 return
 
             if not before.bot and (before.pending and not after.pending) and "COMMUNITY" in guild.features:
